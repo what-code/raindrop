@@ -1,0 +1,43 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.b5m.raindrop</groupId>
+		<artifactId>raindrop-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>raindrop-tao-client</artifactId>
+	<name>Tao Client</name>
+	<description>封装了Tao应用端访问raindrop服务的驱动</description>
+	
+	<properties>
+		<maven.test.skip>true</maven.test.skip>
+	</properties>
+
+	<dependencies>
+		<!-- 淘宝的MetaQ的依赖的客户端的库 -->
+		<dependency>
+			<groupId>com.taobao.metamorphosis</groupId>
+			<artifactId>metamorphosis-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>${groupId}</groupId>
+			<artifactId>raindrop-tao-counter</artifactId>
+			<version>${version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>${groupId}</groupId>
+					<artifactId>metaq-spout</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>${groupId}</groupId>
+					<artifactId>signal-spout</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>${groupId}</groupId>
+					<artifactId>raindrop-tao-db</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+</project>

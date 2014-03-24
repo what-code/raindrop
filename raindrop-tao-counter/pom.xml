@@ -1,0 +1,76 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.b5m.raindrop</groupId>
+		<artifactId>raindrop-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>raindrop-tao-counter</artifactId>
+	<name>Tao Counter</name>
+	<description>此项目用于Tao的商品统计功能，这个统计模块将使用Storm框架处理。</description>
+
+	<properties>
+		<maven.test.skip>true</maven.test.skip>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>storm</groupId>
+			<artifactId>storm</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.b5m.raindrop</groupId>
+			<artifactId>metaq-spout</artifactId>
+			<version>${version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.b5m.raindrop</groupId>
+			<artifactId>signal-spout</artifactId>
+			<version>${version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.b5m.raindrop</groupId>
+			<artifactId>raindrop-tao-db</artifactId>
+			<version>${version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-core-lgpl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+					<archive>
+						<manifest>
+							<mainClass></mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>assembly</phase>
+						<goals>
+							<goal>assembly</goal>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+
+			</plugin>
+		</plugins>
+	</build>
+</project>

@@ -1,0 +1,23 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.b5m.raindrop</groupId>
+		<artifactId>raindrop-source</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>signal-spout</artifactId>
+	<name>Signal Spout</name>
+	<description>此项目实现了Storm的Spout，并提供了发送信号的功能。</description>
+
+	<properties>
+		<maven.test.skip>true</maven.test.skip>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>storm</groupId>
+			<artifactId>storm</artifactId>
+		</dependency>
+	</dependencies>
+</project>

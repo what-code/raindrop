@@ -1,0 +1,74 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.b5m.raindrop</groupId>
+		<artifactId>raindrop-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>raindrop-source</artifactId>
+	<packaging>pom</packaging>
+	<name>Storm Source</name>
+	<description>这个是为Storm提供数据来源，例如，Tao的数据库的源，缓存的源，或者是其他的源等等。</description>
+
+	<properties>
+		<version.spring.jdbc>3.1.1.RELEASE</version.spring.jdbc>
+		<version.mysql>5.1.6</version.mysql>
+		<version.xmemcached>1.4.1</version.xmemcached>
+		<version.c3p0>0.9.2</version.c3p0>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-jdbc</artifactId>
+				<version>${version.spring.jdbc}</version>
+				<exclusions>
+					<exclusion>
+						<artifactId>spring-expression</artifactId>
+						<groupId>org.springframework</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>spring-context</artifactId>
+						<groupId>org.springframework</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>spring-aop</artifactId>
+						<groupId>org.springframework</groupId>
+					</exclusion>
+					<exclusion>
+						<artifactId>aopalliance</artifactId>
+						<groupId>aopalliance</groupId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<!-- Mysql的JDBC驱动 -->
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${version.mysql}</version>
+				<scope>runtime</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.googlecode.xmemcached</groupId>
+				<artifactId>xmemcached</artifactId>
+				<version>${version.xmemcached}</version>
+			</dependency>
+
+			<!-- 数据池的相关库 -->
+			<dependency>
+				<groupId>com.mchange</groupId>
+				<artifactId>c3p0</artifactId>
+				<version>${version.c3p0}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<modules>
+		<module>metaq-spout</module>
+		<module>signal-spout</module>
+		<module>raindrop-tao-db</module>
+		<module>raindrop-memcached</module>
+		<module>raindrop-collector</module>
+	</modules>
+</project>
